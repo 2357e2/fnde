@@ -3,7 +3,7 @@ import torch.nn as nn
 import numpy as np
 import time
 
-from utils import data_load
+from fnde.utils import data_load
 from parameters import *
 from model_switcher import switch_model
 from train import train

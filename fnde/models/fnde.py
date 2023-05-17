@@ -5,7 +5,7 @@ from torchdiffeq import odeint
 from warnings import warn
 from typing import List
 
-from utils import log, FourierOperator, Projection, Lifting, contract_matrix_complex
+from fnde.utils import log, FourierOperator, Projection, Lifting, contract_matrix_complex
 
 class FNDE(nn.Module):
     """Fourier Neural Differential Equation model."""

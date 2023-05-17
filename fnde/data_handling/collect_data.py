@@ -1,4 +1,4 @@
-from training import main
+from fnde.training import main
 
 if __name__ == '__main__':
 

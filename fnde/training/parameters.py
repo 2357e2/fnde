@@ -1,14 +1,19 @@
 import torch
-from data_handling import generate_s_matrix, Phi4_1_loop, Scalar_QED_tree, Scalar_Yukawa_tree
 from typing import List, Tuple
-from utils import conserve_momenta, RelativeLoss
+import pathlib
+
+from fnde.data_handling import (
+    generate_s_matrix, Phi4_1_loop, Scalar_QED_tree, Scalar_Yukawa_tree
+)
+from fnde.utils import conserve_momenta, RelativeLoss
 
 
 # Save paths
-save_path: str = 'C:/Users/fnde/fnde/data/'
-inter_test_save_path: str = 'C:/Users/fnde/fnde/inter_data/'
-extra_test_save_path: str = 'C:/Users/fnde/fnde/extra_data/'
-validation_test_save_path: str = 'C:/Users/fnde/fnde/validation_data/'
+base_path = pathlib.Path(__file__).parent.parent.resolve()
+save_path: str = f'{base_path}/data/training_data/'
+inter_test_save_path: str = f'{base_path}/data/inter_data/'
+extra_test_save_path: str = f'{base_path}/data/extra_data/'
+validation_test_save_path: str = f'{base_path}/data/validation_data/'
 
 
 # model parameters

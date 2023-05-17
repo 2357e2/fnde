@@ -1,7 +1,8 @@
-from models import *
-from parameters import *
-from utils import ParameterError
 import torch
+
+from fnde.models import *
+from parameters import *
+from fnde.utils import ParameterError
 
 def switch_model(model_name, device, momenta: List[float], samp_ts: torch.Tensor):
     """
