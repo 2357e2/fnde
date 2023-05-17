@@ -3,7 +3,6 @@ import torch
 import numpy as np
 import os
 from typing import Union, Tuple, List
-import pathlib
 
 from fnde.utils import inner_product
     
@@ -112,14 +111,21 @@ def save_data(save_path: str, model_name: str, theory_name: str, file_name: Unio
             assert type(name) is str
             save_data(save_path, model_name, theory_name, name, file)
     else:        
-        try:
+        if os.path.isdir(f"{save_path}{model_name}./{theory_name}"):
             assert type(file_name) is str
             np.save(f"{save_path}{model_name}./{theory_name}./{file_name}", data)
-        except FileNotFoundError:
-            os.mkdir(f"{save_path}{model_name}./{theory_name}")
-            file = open(f"{save_path}{model_name}./{theory_name}./{file_name}", 'x')
-            file.close()
-            np.save(f"{save_path}{model_name}./{theory_name}./{file_name}", data)
+        else:
+            if os.path.isdir(f"{save_path}{model_name}"):
+                os.mkdir(f"{save_path}{model_name}./{theory_name}")
+                file = open(f"{save_path}{model_name}./{theory_name}./{file_name}", 'x')
+                file.close()
+                np.save(f"{save_path}{model_name}./{theory_name}./{file_name}", data)
+            else:
+                os.mkdir(f"{save_path}{model_name}")
+                os.mkdir(f"{save_path}{model_name}./{theory_name}")
+                file = open(f"{save_path}{model_name}./{theory_name}./{file_name}", 'x')
+                file.close()
+                np.save(f"{save_path}{model_name}./{theory_name}./{file_name}", data)
 
 def generate_s_matrix(save_path: str, model_name: str, Theory, momenta: List[float], coupling: List[float], in_channels: int, samp_ts, batch_size: int, mass: List[float], exp: str = '', repeat: str = '', normalization = None, save: bool = True, noise_std: float = 0) -> Union[None, Tuple]:
     """
