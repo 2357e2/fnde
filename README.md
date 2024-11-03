@@ -9,6 +9,9 @@ Clone repository using
 To install, enter the download location in terminal and enter
 ```pip install fnde -e .```
 
+Alternately, try:
+```pip install "git+https://github.com/2357e2/fnde"```
+
 ## Basic use
 To train a network navigate to fnde/fnde/training and enter
 ```python main.py```
