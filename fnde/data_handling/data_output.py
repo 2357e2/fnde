@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def print_from_numpy(file_location, file_name, index):
-    file = np.load(f"{file_location}./{file_name}.npy")
+    file = np.load(f"{file_location}/{file_name}.npy")
     output = file
     if type(index) is int:
         output = output[index]
@@ -16,8 +16,8 @@ def print_from_numpy(file_location, file_name, index):
     print(output)
 
 def plot(file_path, model, file_name_x, file_name_y):
-    x = np.load(f"{file_path}./{model}./{file_name_x}.npy")
-    y = np.load(f"{file_path}./{model}./{file_name_y}.npy")
+    x = np.load(f"{file_path}/{model}/{file_name_x}.npy")
+    y = np.load(f"{file_path}/{model}/{file_name_y}.npy")
 
     fig, ax0 = plt.subplots()
     
@@ -28,11 +28,11 @@ def plot(file_path, model, file_name_x, file_name_y):
     plt.show()
 
 def plot_compare(file_paths, model_names, plot_title, file_name_x, file_name_y, log_loss=True):
-    #x = np.load(f"{file_paths[0]}./{file_name_x}.npy")
+    #x = np.load(f"{file_paths[0]}/{file_name_x}.npy")
     x = np.linspace(1, 400, 400)
     y_ls = []
     for file in file_paths:
-        y_ls.append(np.load(f"{file}./{file_name_y}.npy"))
+        y_ls.append(np.load(f"{file}/{file_name_y}.npy"))
     
     y_fnde = np.empty(len(y_ls[0]))
     y_fnde_mod = np.empty(len(y_ls[0]))

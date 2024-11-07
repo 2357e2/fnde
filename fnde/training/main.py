@@ -67,16 +67,16 @@ def main(model_name: str, repeat: str='0', exp: str='___') -> None:
         print(f"final time step pred_s: {pred_s[-1]}")
         print(f"final time step s: {s[-1]}")
 
-    np.save(f"{save_path}{model_name}./{exp}{repeat}{Hamiltonian.__name__}./epoch_arr", epoch_arr)
-    np.save(f"{save_path}{model_name}./{exp}{repeat}{Hamiltonian.__name__}./nfe_arr", nfe_arr)
-    np.save(f"{save_path}{model_name}./{exp}{repeat}{Hamiltonian.__name__}./loss_arr", loss_arr)
-    np.save(f"{save_path}{model_name}./{exp}{repeat}{Hamiltonian.__name__}./time_arr", time_arr)
-    np.save(f"{save_path}{model_name}./{exp}{repeat}{Hamiltonian.__name__}./s_pred", pred_s)
+    np.save(f"{save_path}{model_name}/{exp}{repeat}{Hamiltonian.__name__}/epoch_arr", epoch_arr)
+    np.save(f"{save_path}{model_name}/{exp}{repeat}{Hamiltonian.__name__}/nfe_arr", nfe_arr)
+    np.save(f"{save_path}{model_name}/{exp}{repeat}{Hamiltonian.__name__}/loss_arr", loss_arr)
+    np.save(f"{save_path}{model_name}/{exp}{repeat}{Hamiltonian.__name__}/time_arr", time_arr)
+    np.save(f"{save_path}{model_name}/{exp}{repeat}{Hamiltonian.__name__}/s_pred", pred_s)
     if validation_test:
-        np.save(f"{validation_test_save_path}{model_name}./{exp}{repeat}{Hamiltonian.__name__}./valid_loss_arr", valid_loss_arr)
-    torch.save(model, f"{save_path}{model_name}./{exp}{repeat}{Hamiltonian.__name__}./{model_name}_{Hamiltonian.__name__}_model.pth")
+        np.save(f"{validation_test_save_path}{model_name}/{exp}{repeat}{Hamiltonian.__name__}/valid_loss_arr", valid_loss_arr)
+    torch.save(model, f"{save_path}{model_name}/{exp}{repeat}{Hamiltonian.__name__}/{model_name}_{Hamiltonian.__name__}_model.pth")
     
-    print('\nprocess ended\n\n')
+    print('\nprocess sucessfully terminated.\n\n')
 
 
 if __name__ == '__main__':

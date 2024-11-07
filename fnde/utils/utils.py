@@ -44,7 +44,7 @@ def data_load(save_path, model_name, theory_name, device, file_names = ['samp_ts
     """
     files = []
     for file_name in file_names:
-        files.append(torch.tensor(np.load(f"{save_path}{model_name}./{theory_name}./{file_name}"), requires_grad=requires_grad, dtype=data_type).to(device)) # t_steps times in an array)
+        files.append(torch.tensor(np.load(f"{save_path}{model_name}/{theory_name}/{file_name}"), requires_grad=requires_grad, dtype=data_type).to(device)) # t_steps times in an array)
     return files
 
 def conserve_momenta(tensor: torch.Tensor, momenta: List[float], absolute: bool = True):
