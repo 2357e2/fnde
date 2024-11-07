@@ -1,0 +1,4 @@
+fnde/data/
+__pycache__/
+fnde.egg-info/
+*.DS_Store
